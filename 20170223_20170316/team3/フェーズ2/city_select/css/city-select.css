@@ -1,0 +1,11 @@
+.mapCanvas {
+    box-sizing: border-box;
+    max-width: 890px;
+    width: 100%;
+    height: auto;
+}
+
+#contextMenu {
+    position: absolute;
+    display: none;
+}

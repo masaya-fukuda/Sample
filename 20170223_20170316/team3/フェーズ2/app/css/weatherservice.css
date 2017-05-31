@@ -1,0 +1,177 @@
+@media screen and ( max-width:767px )
+{
+	#map-canvas {
+		width: 80%;
+		height: 300px ;
+		margin-right: 15px;
+		margin-left: 15px;
+		margin-bottom: 15px;
+	}
+	#res-description{
+		width: 80% ;
+		margin: 15px;
+	}
+	.result_map{
+		width: 100%;
+	}
+	.result_detail{
+		width: 100%;
+	}
+	.box_today{
+		width: 150px;
+	}
+	.box_tomorrow{
+		width: 100px;
+	}
+	.box_da_tomorrow{
+		width: 100px;
+	}
+
+}
+@media screen and ( min-width:768px )
+{
+	#map-canvas {
+		width: 80%;
+		height: 300px ;
+		margin-right: 15px;
+		margin-left: 15px;
+		margin-bottom: 15px;
+	}
+
+	#res-description{
+		width: 80%;
+		margin: 15px;
+	}
+
+	.result_map{
+		width: 60%;
+	}
+	.result_detail{
+		width: 30%;
+	}
+	.box_today{
+		width: 200px;
+	}
+	.box_tomorrow{
+		width: 150px;
+	}
+	.box_da_tomorrow{
+		width: 150px;
+	}
+}
+
+#res-today-img{
+	width: 80%;
+}
+
+.result{
+	display: flex;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap; /* Safari */
+	flex-wrap:         wrap;
+	-webkit-justify-content: start; /* Safari */
+	justify-content:         start;
+}
+
+.result_head_description{
+	margin: 0px 15px;
+	font-size: 21px;
+}
+
+.result_map{
+	margin:15px;
+}
+
+.result_detail{
+	display: flex;
+	-webkit-flex-direction: row; /* Safari */
+	flex-direction:         row;
+	margin: 30px;
+}
+
+.header_style{
+	background-color: #DCF9FF;
+	color: #1438EC;
+}
+
+.box_today{
+	margin:0px 30px;
+}
+
+.wrap_today{
+	list-style:none;
+}
+
+.head_today{
+	height:50px;
+	background-color: #FF872B;
+	border-radius: 5px;
+	color:white;
+	text-align: center;	
+	font-size: 20px;
+}
+
+.head_tomorrow{
+	background-color:#2B87FF;
+	height: 50px;
+	color:white;
+	text-align: center;	
+	font-size: 20px;
+}
+
+.nonborder{
+	border: none;
+}
+
+.icon_today{
+	text-align: center;
+}
+
+.icon_tomorrow{
+	text-align: center;
+}
+
+.icon_today i{
+	font-size: 50px;
+}
+
+.high_today{
+	color:#DF346E;
+	text-align: center;
+	font-size: 18px;
+}
+
+.low_today{
+	color:#348ADF;
+	text-align: center;
+	font-size: 18px;
+}
+
+.high_tomorrow{
+	color:#DF346E;
+	text-align: center;
+}
+
+.low_tomorrow{
+	color:#348ADF;
+	text-align: center;
+}
+
+.border{
+	border-bottom: 1px solid gray;
+}
+
+.link{
+	margin:50px 50px;
+}
+
+.link_title{
+	color:#EECF09;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.link_detail{
+	color:deeppink;
+}
