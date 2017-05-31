@@ -1,0 +1,340 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.demo-main {
+  margin-top: -35vh;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+}
+
+.demo-header .mdl-layout__header-row {
+  color: #FFFFFF; 
+  background-color: #005bac;
+  padding-left: 40px;
+  height: 100px;
+}
+
+.change_date {
+  color:#005bac; 
+  background-color: #DDDDDD; 
+  width:95px;
+  height:40px;
+  border-radius: 4px;
+  float:left;
+}
+
+.kintai_register{
+  color:#005bac; 
+  background-color: #DDDDDD; 
+  width:85px;
+  height:40px;
+  border-radius: 4px;	
+}
+
+.mdl-layout-title {
+  font-size: 200%; 
+}
+
+.demo-header .mdl-layout__header-row2 {
+  color: #FFFFFF; 
+  background-color: #005bac;
+  padding-left: 40px;
+  height: 80px;
+}
+
+.search_team{
+  width:510px;  
+  height: 34px;
+  size:80%; 
+  border-radius: 4px;
+}
+
+.search{
+  color:#FFFFFF;
+  width:50px; 
+  height:40px;
+  vertical-align: -8px;
+  border:0;
+  background:none;
+  
+}
+
+.logout{
+  width:40px;
+  height:40px;
+  border:0;
+  background:none;
+}
+
+.mdl-layout__container-row{
+  padding-left: 20px; 
+  overflow: visible !important;
+}
+
+.mdl-list__item{
+  margin:-5px; 
+  width: 95%; 
+  height: 70px;
+  overflow: visible !important;
+  z-index: auto !important;
+}
+
+.name{
+  color: #005bac;
+  width: 260px;
+  background-color: #FFFFFF;
+  height: 30px;
+  text-align: left;
+  line-height: 220%;
+  font-size: 15px;
+}
+
+.icon-jiyuu{
+  color: #FFFFFF;
+  width: 80px;
+  background-color: #005bac;
+  height: 30px;
+  text-align: center;
+  line-height: 220%;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.time{
+  color: #005bac;
+  width: 180px;
+  background-color: #FFFFFF;
+  height: 30px;
+  text-align: left;
+  line-height: 220%;
+  font-size: 15px;
+}
+
+.ampm{
+  color: #FFFFFF;
+  width: 65px;
+  background-color: #FFFFFF;
+  height: 30px;
+}
+
+.icon-am{
+  color: #FFFFFF;
+  width: 65px;
+  height: 30px;
+  background-color: #e6004d;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 220%;
+}
+
+.icon-pm{
+  color: #FFFFFF;
+  width: 65px;
+  height: 30px;
+  background-color: #008b8b;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 220%;
+}
+
+.demo-container {
+  max-width: 1600px;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+}
+
+.demo-content {
+  border-radius: 2px;
+  padding: 80px 56px;
+  margin-bottom: 80px;
+}
+
+.demo-layout.is-small-screen .demo-content {
+  padding: 40px 28px;
+}
+
+.demo-content h3 {
+  margin-top: 48px;
+}
+
+.demo-footer {
+  padding-left: 40px;
+}
+
+.demo-footer .mdl-mini-footer--link-list a {
+  font-size: 13px;
+}
+
+.employee__image{
+  padding: 10px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;  
+  width: 40px;
+  height: 40px;
+  border: 0;
+}
+
+.contents_row{
+  font-size:16px;
+  text-align:left;
+  margin-top:10px;
+}
+
+.submit{
+  margin-top:20px;
+}
+
+.mdl-radio{
+  z-index:0 !important;
+}
+
+.demo-card-wide{
+  width: 90%; 
+  height: 95%; 
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 25px;
+}
+
+.detail_list_item{
+  color: #000000;
+  width: 120px;
+  background-color: #d5d5d5;
+  height: 30px;
+  text-align: center;
+  line-height: 220%;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 20px;
+  display: inline-block;  			
+}
+
+.detail_list_content{
+  margin-left: 10px;	
+  display: inline-block;
+}
+
+.back{
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  width: 90px;
+}
+
+.edit{
+  display: inline-block;
+  margin-bottom: 30px;
+  width: 150px;
+}
+
+.register{
+  margin-top: 15px;
+  margin-left: 30px;
+  margin-bottom: 40px;		
+}
+
+@media screen and (max-width: 960px) {
+.ampm{
+  display:none;
+}
+
+@media screen and (max-width: 768px) {
+
+.mdl-list__item{
+  width:100%;
+  height:70px;
+  padding:10px;
+}
+
+.search_team{
+  width:80%;  
+}
+
+#indexName{
+  font-size:12px;
+  line-height:30px;
+  width:200px;
+}
+
+.icon-jiyuu{
+  font-size:12px;
+  width:60px;
+  line-height:250%;	
+}
+
+.employee__image{
+  display:none;
+}
+
+.margin{
+  display:none;	
+}
+
+@media screen and (max-width: 600px) {
+.mdl-list__item{
+  width:100%;
+  height:70px;
+  padding:10px;
+}
+
+#indexName{
+  font-size:12px;
+  line-height:30px;
+  width:200px;
+}
+
+.icon-jiyuu{
+  width:60px;
+  font-size:12px;
+  line-height:250%;	
+}
+
+.time{
+  display:none;	
+}
+
+.ampm{
+  display:none;
+}
+
+.margin{
+  display:none;	
+}
+
+.employee__image{
+  display:none;
+}	
+
+.search_team{
+  width:80%;  
+}
+	
+.mdl-layout__header-row,.mdl-layout__header-row2{
+  padding-left: 20px !important;
+}
+
+#view_today{
+  font-size:30px !important;
+}
+
+.change_date{
+  display:none;
+}

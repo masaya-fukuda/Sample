@@ -1,0 +1,122 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Material Design Liteのテンプレートを一部使用 -->
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+    <title>勤怠情報変更</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite"/>
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"/>
+    <meta name="msapplication-TileColor" content="#3372DF"/>
+    
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css"/>
+    <link rel="stylesheet" href="/styles.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css" />
+	<script>
+	  $(function() {
+      $("#datepicker").datepicker();
+      });
+	</script>  
+</head>
+<body>
+  <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <!-- ヘッダー部分 -->
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <i class="material-icons" style="font-size:45px">insert_comment</i>
+          <span style="margin-right: 1em;"></span>
+          <span style="font-size: 25px">勤怠情報変更</span>
+          <span class="mdl-layout-title"></span>
+        </div>
+      </header>          
+	<div class ="contents_row">
+	  <div class="mdl-layout__container-row"> 
+        <div class="demo-list-item mdl-list">
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">			
+		  	<form th:action="@{'/kintai/edit/'+${kintai.id}}" method="post" th:object="${kintaiForm}" class="edit_kintai" id="edit_kintai" enctype="multipart/form-data" accept-charset="UTF-8" action="/users">
+		    	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		        	<label for="input_text" class="mdl-textfield__label">社員番号</label>
+		        	<input id="kintai_userNumber" class="mdl-textfield__input" type="text" name="userNumber" th:value="${kintai.userNumber}"/>
+		        	<span th:if="${#fields.hasErrors('userNumber')}" th:errors="*{userNumber}" class="help-block" style="color:red; font-size:80%">user error</span>
+		    	</div>
+			    <div class="kintai_date">
+			    	<span>対象日</span>
+			    	<span style="margin-right: 1em;"></span>
+			    	<input id="datepicker" type="text" name="date" th:value="${kintai.date}" />
+			  		<span style="font-size:90%">例：2017/01/01</span><br/>
+			  		<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="help-block" style="color:red; font-size:80%">Date error</span>
+			  	</div>  	
+			　　 <div class="kintai_type">
+					<span>事由</span>
+					<span style="margin-right: 2em;"></span>
+			    	<select name="type">
+			     	 	<option th:each="eachtype : ${types}" th:selected="${eachtype == kintai.type}" th:value="${eachtype}" th:text="${eachtype}">type</option>     	 	
+			    	</select><br/>
+			    	<span th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="help-block" style="color:red; font-size:80%">Type error</span>
+			    	<br/>
+				</div>	
+				<div class="kintai_ampm">		
+				    <span>時間帯</span>
+					<span style="margin-right: 1em;"></span>
+			        	<label th:each="ampm : ${timelist}" class="mdl-radio mdl-js-radio">
+			                <input type="radio" name="ampm" th:checked="${ampm == kintai.ampm}" th:value="${ampm}" th:text="${ampm}" class="mdl-radio__button"/>
+			            </label><br/>
+			            <span th:if="${#fields.hasErrors('ampm')}" th:errors="*{ampm}" class="help-block" style="color:red; font-size:80%">Ampm error</span>
+			    </div>	    
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			        <label for="input_text" class="mdl-textfield__label">時間(遅刻、早退、外出の場合)</label>
+			        <input id="kintai_time" class="mdl-textfield__input" type="text" name="time" th:value="${kintai.time}" />
+			        <span th:if="${#fields.hasErrors('time')}" th:errors="*{time}" class="help-block" style="color:red; font-size:80%">time error</span>
+			    </div> 
+			    <span style="font-size:90%">例：10:00</span>			    
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: block">
+			    	<label for="input_text" class="mdl-textfield__label">備考(任意)</label>
+			        <input id="kintai_description" class="mdl-textfield__input" type="text" name="description" th:value="${kintai.description}" />
+			        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="help-block" style="color:red; font-size:80%">description error</span>
+			    </div>    
+			    <div class="submit">
+			      <div class="actions">
+				    <input type="submit" name="commit" value="変更する" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"></input>
+				  </div>	  
+				</div>	                
+		    </form>
+		  </div>
+		</div>
+      </div>
+    </div>
+    <div class="back">
+      <div class="actions">
+        <a th:href="@{'/kintai/detail/' + ${kintai.id}}">	      
+	      <button type="button" class="mdl-button mdl-js-button mdl-button--raised">戻る</button>
+	    </a>
+      </div>	  
+	</div>
+    <footer class="demo-footer mdl-mini-footer">
+      <div class="mdl-mini-footer--left-section"></div>
+    </footer>	
+  </div>
+</body>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>  
+</html>

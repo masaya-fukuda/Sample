@@ -1,0 +1,107 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Material Design Liteのテンプレートを一部使用 -->
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+    <title>勤怠詳細確認</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite"/>
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"/>
+    <meta name="msapplication-TileColor" content="#3372DF"/>
+    
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css"/>
+    <link rel="stylesheet" href="/styles.css"/> 
+</head>
+<body>
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <!-- ヘッダー部分 -->
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <i class="material-icons" style="font-size:45px">info</i>
+          <span style="margin-right: 1em;"></span>
+          <span style="font-size: 25px">勤怠詳細確認</span>
+          <span class="mdl-layout-title"></span>
+        </div>
+      </header>
+    <!-- コンテナ部分 -->
+    <!-- 要素 -->
+    <div class="contents row" th:object="${kintai}">
+      <div class="mdl-layout__container-row"> 
+        <div class="demo-list-item mdl-list">
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="detail_name">
+              <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" class="employee__image"/>
+              <span style="margin-right: 1em;"></span>
+              <span class="name">
+                <span th:if="${kintai.user == null}">社員番号該当なし</span>
+                <span th:if="${kintai.user != null}">            
+              	  <span th:text="${kintai.user.name}"></span>
+          	    </span>
+          	  </span>
+			</div>			
+			<div class="detail_list">
+			  <span class="detail_list_item">対象日</span>
+			  <span style="margin-right: 1em;"></span>
+			  <span th:text="${kintai.date}"></span>
+			</div>						
+		    <div class="detail_list">
+			  <span class="detail_list_item">事由</span>
+			  <span style="margin-right: 1em;"></span>
+			  <span th:text="${kintai.type}"></span>
+			</div>
+			<div class="detail_list">
+			  <span class="detail_list_item">時間</span>
+			  <span style="margin-right: 1em;"></span>
+			  <span th:text="${kintai.time}"></span>
+			</div>
+			<div class="detail_list">
+			  <span class="detail_list_item">備考</span>
+			  <span style="margin-right: 1em;"></span>
+			  <span th:text="${kintai.description}"></span><br/><br/>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">    
+	  <span class="back">
+	    <button type="button" class="mdl-button mdl-js-button mdl-button--raised" onclick="location.href='/'">戻る</button>
+	  </span>
+      <th:block th:if="${login_user != null} ? ${kintai.user.userId.equals(login_user.userId)}">	  
+		<span class="edit">
+		  <a th:href="@{'/kintai/edit/' + ${kintai.id}}">
+	       <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="location.href='/'">内容を変更する</button>
+		  </a>
+		</span>
+ 	    <form th:action="@{'/kintai/delete/' + ${kintai.id}}" method="post" style="display:inline-block" class="delete">
+	        <input type="submit" name="commit" value="削除" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"/>
+	    </form>
+	  </th:block>
+	</div>
+    <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+          </div>
+    </footer>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+</html>
